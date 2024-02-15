@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
 score = ARGV[0] # Stringを受け取る。もしintにしたければto_iを使う
 scores = score.split(',')
@@ -29,14 +30,14 @@ end
 # ボーナスポイントを計算
 frames[0..8].each_with_index do |frame, i|
   if frame[0] == 10 # そのフレームの1投目がストライク
-    if frames[i+1] && frames[i+1][0] == 10 # 次のフレームの1投目もストライク
-      bonus_point += 10 
-      bonus_point += frames[i+2][0] if frames[i+2] # 次の次のフレームの1投目を追加
-    elsif frames[i+1] # 次のフレームはあるが、1投目がストライクでない
-      bonus_point += frames[i+1].sum # 次のフレームの合計(1投目、2投目)を追加
+    if frames[i + 1] && frames[i + 1][0] == 10 # 次のフレームの1投目もストライク
+      bonus_point += 10
+      bonus_point += frames[i + 2][0] if frames[i + 2] # 次の次のフレームの1投目を追加
+    elsif frames[i + 1] # 次のフレームはあるが、1投目がストライクでない
+      bonus_point += frames[i + 1].sum # 次のフレームの合計(1投目、2投目)を追加
     end
   elsif frame.sum == 10 # スペア
-    bonus_point += frames[i+1][0] if frames[i+1]
+    bonus_point += frames[i + 1][0] if frames[i + 1]
   end
 end
 
