@@ -5,12 +5,12 @@ score = ARGV[0] # Stringを受け取る。もしintにしたければto_iを使�
 scores = score.split(',')
 shots = [] # shotsの配列を作る
 
-scores.each do |score| # scoresの中身をsに入れる
-  if score == 'X' # sがXなら
+scores.each do |s| # scoresの中身をsに入れる
+  if s == 'X' # sがXなら
     shots << 10 # 10をshotsに入れる
     shots << 0  # 0をshotsに入れる
   else # それ以外なら
-    shots << score.to_i # sをint(数字)にしてshotsに入れる
+    shots << s.to_i # sをint(数字)にしてshotsに入れる
   end
 end
 
